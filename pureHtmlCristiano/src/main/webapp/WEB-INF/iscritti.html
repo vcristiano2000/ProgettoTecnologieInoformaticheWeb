@@ -1,0 +1,63 @@
+<!DOCTYPE >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" type="text/css" media="all" href="../css/global.css" th:href="@{/css/global.css}" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Politecnico di Milano</title>
+</head>
+<body>
+	<div th:replace="/WEB-INF/header :: header"></div>
+	<div class="div-title">
+		<h1>Iscritti all'appello del corso <i><span th:text="${nomeCorso}">id_corso</span></i> del giorno <i><span th:text="${dataAppello}">dataAppello</span></i><br></h1>
+	</div>
+	<div class="form-div div-colored">
+		<table>
+		  <tr>
+		    <th>
+		    	<a th:if="${ord} == 'MATRICOLA_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = MATRICOLA_DESC)}">MATRICOLA</a>
+		    	<a th:unless="${ord} == 'MATRICOLA_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = MATRICOLA_ASC)}">MATRICOLA</a>
+		    </th>
+		    <th>
+		    	<a th:if="${ord} == 'NOME_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = NOME_DESC)}">NOME</a>
+		    	<a th:unless="${ord} == 'NOME_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = NOME_ASC)}">NOME</a>
+		    </th>
+		    <th>
+		    	<a th:if="${ord} == 'COGNOME_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = COGNOME_DESC)}">COGNOME</a>
+		    	<a th:unless="${ord} == 'COGNOME_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = COGNOME_ASC)}">COGNOME</a>
+		    </th>
+		    <th>
+		    	<a th:if="${ord} == 'EMAIL_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = EMAIL_DESC)}">EMAIL</a>
+		    	<a th:unless="${ord} == 'EMAIL_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = EMAIL_ASC)}">EMAIL</a>
+		    </th>
+		    <th>
+		    	<a th:if="${ord} == 'CORSODILAUREA_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = 'CORSODILAUREA_DESC')}">CORSODILAUREA</a>
+		    	<a th:unless="${ord} == 'CORSODILAUREA_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = 'CORSODILAUREA_ASC')}">CORSODILAUREA</a>
+		    </th>
+		    <th>
+		    	<a th:if="${ord} == 'VOTO_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = VOTO_DESC)}">VOTO</a>
+		    	<a th:unless="${ord} == 'VOTO_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = VOTO_ASC)}">VOTO</a>
+		    </th>
+		    <th>
+		    	<a th:if="${ord} == 'STATOVALUTAZIONE_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = STATOVALUTAZIONE_DESC)}">STATO</a>
+		    	<a th:unless="${ord} == 'STATOVALUTAZIONE_ASC'" class="btn btn-small btn-colored-inverted"  th:href="@{/GoToIscritti(idCorso=${idCorso},data=${dataAppello},ord = STATOVALUTAZIONE_ASC)}">STATO</a>
+		    </th>
+		  </tr>
+		  <tr th:each="iscritto : ${iscritti}">
+			<td th:text= "${iscritto.matricola}">Matricola</td> 
+			<td th:text= "${iscritto.nome}">Nome</td>
+			<td th:text= "${iscritto.cognome}">Cognome</td>
+			<td th:text= "${iscritto.email}">Email</td>
+			<td th:text= "${iscritto.CorsoDiLaurea}">CorsoDiLaurea</td>
+			<td th:text= "${iscritto.voto}">Voto</td>
+			<td th:text= "${iscritto.statoDellaValutazione}">Stato</td>
+			<td> <a th:if="${iscritto.statoDellaValutazione} == 'non_inserito' or ${iscritto.statoDellaValutazione} == 'inserito' " class="btn btn-small btn-colored-solid"  th:href="@{/GoToModifica(idCorso=${idCorso},data=${dataAppello},matricola=${iscritto.matricola})}">Modifica</a></td>			
+		  </tr>
+		</table> 
+		<span>
+			<a th:if="${pubblica} == true" class="btn btn-small btn-colored-solid"  th:href="@{Pubblica(idCorso=${idCorso},data=${dataAppello})}">Pubblica</a>
+			<a th:if="${verbalizza} == true" class="btn btn-small btn-colored-solid"  th:href="@{Verbalizza(idCorso=${idCorso},data=${dataAppello})}">Verbalizza</a> 
+		</span>
+			
+	</div>	
+</body>
+</html>

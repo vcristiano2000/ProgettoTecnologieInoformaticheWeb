@@ -1,0 +1,28 @@
+<!DOCTYPE >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" media="all" href="../css/global.css" th:href="@{/css/global.css}" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Politecnico di Milano</title>
+</head>
+<body>
+<div class="form-div div-colored">
+		<div class="form-title">Insert your id and password to Login</div>
+		<form class="form-container" method="POST" th:action="@{/Login}">
+			<div class="form-entry">
+				<label for="id">Id</label>
+				<input type="number" placeholder="Enter your id" name="id" required>
+			</div>
+			<div class="form-entry">
+				<label for="password">Password</label>
+				<input type="password" placeholder="Enter your password" name="password" maxlength="45" required>
+			</div>
+			<button class="btn" type="submit">Login</button>
+		</form>
+
+		<div class="warning-message" th:if="${loginWarningMsg}">
+			<span th:text="${loginWarningMsg}">Id or password not valid!</span>
+		</div>
+</div>
+</body>
+</html>

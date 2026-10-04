@@ -1,0 +1,26 @@
+<!DOCTYPE >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" type="text/css" media="all" href="../css/global.css" th:href="@{/css/global.css}" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Politecnico di Milano</title>
+</head>
+<body>
+	<div th:replace="/WEB-INF/header :: header"></div>
+	<div class="form-div div-colored">
+		<table>
+		  <tr>
+		    <th>ID</th>
+		    <th>NOME</th>
+		    <th>DOCENTE</th>
+		  </tr>
+		  <tr th:each="corso : ${courses}">
+			<td th:text= "${corso.idCorso}">IdCorso</td>
+			<td th:text= "${corso.nomeCorso}">NomeCorso</td>
+			<td th:text= "${corso.idDocente}">IdDocente</td>
+			<td><a class="btn btn-small btn-colored-solid" th:href="@{/GoToAppelli(idCorso=${corso.idCorso})}">Appelli</a></td>
+		  </tr>
+		</table>
+	</div>
+</body>
+</html>

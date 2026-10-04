@@ -1,0 +1,29 @@
+<!DOCTYPE >
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="all" href="css/global.css"/>
+<script defer src="js/utils.js"></script>
+<script defer src="js/login.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Politecnico di Milano</title>
+</head>
+<body>
+<div class="form-div div-colored">
+		<div class="form-title">Insert your id and password to Login</div>
+		<form class="form-container" action="#">
+			<div class="form-entry">
+				<label for="id">Id</label>
+				<input type="number" placeholder="Enter your id" name="id" required>
+			</div>
+			<div class="form-entry">
+				<label for="password">Password</label>
+				<input type="password" placeholder="Enter your password" name="password" maxlength="45" required>
+			</div>
+			<input id="login_button" class="btn btn-large btn-colored-solid" type="button" value="Login"/>
+		</form>
+
+		<div id="login_warning_msg" class="warning-message"></div>
+		
+</div>
+</body>
+</html>

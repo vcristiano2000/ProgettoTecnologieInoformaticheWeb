@@ -1,0 +1,64 @@
+<!DOCTYPE >
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" media="all" href="css/global.css"/>
+	<script defer src="js/utils.js"></script>
+	<script defer src="js/studente.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Politecnico di Milano</title>
+</head>
+<body>
+	<div class="header-div div-colored">
+			<div class="header-title">You are logged as:</div>
+			<hr>
+			<div class="header-content">
+				<span> Ruolo: studente</span>
+				<span> User: <b><span id="header-name">Name</span></b><br> </span>
+				<span> ID: <b><span id="header-id">0000</span></b> </span>
+			</div>
+			<a id="logout-button" class="btn btn-medium btn-colored-inverted" href="Logout">Log out</a>
+			<input id="header-corsi-button" class="btn btn-medium btn-colored-inverted" type="button" value="Corsi"/>
+	</div>
+	
+	<div id="corsi-div" class="form-div div-colored">
+			<table id="corsi-table">
+			  <tr>
+			    <th>ID</th>
+			    <th>NOME</th>
+			    <th>DOCENTE</th>
+			  </tr>
+			 </table>
+	</div>
+	<div id="appelli-div" class = "form-div div-colored">
+			<h1>Appelli del corso <i><span id="idCorso-titolo"></span></i><br></h1>
+			<table id="appelli-table">
+			  <tr>
+			    <th>DATA APPELLO</th>
+			  </tr>
+			</table> 	
+	</div>	
+	
+	<div id = "voto-div" class="form-div div-colored">
+	<div Class="div-title">
+		<h1>Esito dell'Appello: <i><span id = "nomeCorso-voto-titolo"></span></i> <i><span id ="data-voto-titolo"></span></i><br></h1>
+		<h2 id ="voto-non-definito">Voto non ancora definito</h2>
+	</div>
+		<table id = "voto-table">
+		  <tr>
+		    <th>Dati Valutazione</th>
+		  </tr>
+		    <tr> <td id = "riga-idCorso" >IdCorso</td></tr>
+			<tr> <td id = "riga-idDocente" >IdDocente</td></tr>
+			<tr> <td id = "riga-data">Data</td></tr>
+			<tr> <td id = "riga-matricola">Matricola</td></tr>
+			<tr> <td id = "riga-cognome">Cognome</td></tr>
+			<tr> <td id = "riga-nome">Nome</td></tr>
+			<tr> <td id = "riga-voto">Voto</td></tr>
+			<tr> <td id = "voto-rifiutato">il voto è stato rifiutato</td></tr>
+			<tr> <td> <input id="rifiuta-button" class="btn btn-medium btn-colored-inverted" type="button" value="Rifiuta"/>			
+		</table>
+	</div>
+
+	<div id="warning_div" class="warning-message"></div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE >
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" media="all" href="css/global.css"/>
+	<script defer src="js/utils.js"></script>
+	<script defer src="js/professore.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Politecnico di Milano</title>
+</head>
+<body>
+	<div class="header-div div-colored">
+			<div class="header-title">You are logged as:</div>
+			<hr>
+			<div class="header-content">
+				<span> Ruolo: professore</span>
+				<span> User: <b><span id="header-name">Name</span></b><br> </span>
+				<span> ID: <b><span id="header-id">0000</span></b> </span>
+			</div>
+			<a id="logout-button" class="btn btn-medium btn-colored-inverted" href="Logout">Log out</a>
+			<input id="header-corsi-button" class="btn btn-medium btn-colored-inverted" type="button" value="Corsi"/>
+	</div>
+	
+	<div id="corsi-div" class="form-div div-colored">
+			<table id="corsi-table">
+			  <tr>
+			    <th>ID</th>
+			    <th>NOME</th>
+			    <th>DOCENTE</th>
+			  </tr>
+			 </table>
+	</div>
+	
+	<div id="appelli-div" class = "form-div div-colored">
+			<h1>Appelli del corso <i><span id="idCorso-titolo"></span></i><br></h1>
+			<table id="appelli-table">
+			  <tr>
+			    <th>DATA APPELLO</th>
+			  </tr>
+			</table> 	
+	</div>	
+	
+	<div id="iscritti-div" class="form-div div-colored" >
+		<div class="div-title">
+			<h1>Iscritti all'appello del corso <i><span id= "idCorso-iscritti-titolo"></span></i> del giorno <i><span id="data-iscritti-titolo"></span></i><br></h1>
+		</div>
+		
+		<table id="iscritti-table">
+		  <tr>
+		    <th>
+		    	<input id="matricola-button" class="btn btn-large btn-colored-solid" type="button" value="Matricola"/>
+		    </th>
+		    <th>
+		    	<input id="nome-button" class="btn btn-large btn-colored-solid" type="button" value="Nome"/>
+		    </th>
+		    <th>
+		    	<input id="cognome-button" class="btn btn-large btn-colored-solid" type="button" value="Cognome"/>
+		    </th>
+		    <th>
+		    	<input id="email-button" class="btn btn-large btn-colored-solid" type="button" value="Email"/>
+		    </th>
+		    <th>
+		    	<input id="corsoLaurea-button" class="btn btn-large btn-colored-solid" type="button" value="CorsoLaurea"/>
+		    </th>
+		    <th>
+		    	<input id="voto-button" class="btn btn-large btn-colored-solid" type="button" value="Voto"/>
+		    </th>
+		    <th>
+		    	<input id="statoValutazione-button" class="btn btn-large btn-colored-solid" type="button" value="StatoValutazione"/>
+		    </th>
+		  </tr>
+	
+		</table> 
+		
+		<span>
+			<input id="pubblica-button" class="btn btn-medium btn-colored-solid" type="button" value="Pubblica"/>
+			<input id="verbalizza-button" class="btn btn-medium btn-colored-solid" type="button" value="Verbalizza"/> 
+			<input id="inserimentoMultiplo-button" class="btn btn-medium btn-colored-solid" type="button" value="Inserimento Multiplo"/>	
+		</span>	
+	</div>	
+	
+	<div id="modifica-div" class="form-div div-colored">
+			<table id="modifica-table">
+			  <tr>
+			    <th>MATRICOLA</th>
+			    <th>COGNOME</th>
+			    <th>NOME</th>
+			    <th>EMAIL</th>
+			    <th>CORSO DI LAUREA</th>
+			  </tr>		
+			</table>
+			<form class="form-container" method="POST" action ="#">
+				<div class="form-entry">
+					<select name="voto" required>
+					  <option value="Assente">Assente</option>
+					  <option value="Rimandato">Rimandato</option>
+					  <option value="Riprovato">Riprovato</option>
+					  <option value="18">18</option>
+					  <option value="19">19</option>
+					  <option value="20">20</option>
+					  <option value="21">21</option>
+					  <option value="22">22</option>
+					  <option value="23">23</option>
+					  <option value="24">24</option>
+					  <option value="25">25</option>
+					  <option value="26">26</option>
+					  <option value="27">27</option>
+					  <option value="28">28</option>
+					  <option value="29">29</option>
+					  <option value="30">30</option>
+					  <option value="30eLode">30eLode</option>
+					</select>
+				</div>
+				<input type="hidden" id="modifica-idCorso" name="idCorso" value="">
+				<input type="hidden" id="modifica-data" name="data" value="">
+				<input type="hidden" id="modifica-matricola" name="matricola" value="">
+				<input id="modifica-button" class="btn btn-large btn-colored-solid" type="button" value="Modifica"/>	
+			</form> 	
+	</div>
+	<div id="verbale-div" class="form-div div-colored">
+		<div Class="div-title">
+			<h1>Verbale dell'Appello: <i><span id="nomeCorso-titolo-verbale"></span></i> <i><span id = "dataAppello-titolo-verbale"></span></i><br></h1>
+			<h2>Data verbale: <i><span id="dataVerbale-titolo-verbale"></span></i></h2>
+		</div>
+			<table id = "verbale-table">
+			  <tr>
+			    <th>MATRICOLA</th>
+			    <th>NOME</th>
+			    <th>COGNOME</th>
+			    <th>VOTO</th>
+			  </tr>			
+			</table>
+		</div>
+	<div id="modal-box" class="modal-box">
+	    <div class="modal-container div-colored">
+	        <div id="modal-title" class="modal-title">Seleziona uno o piu' studenti a cui assegnare il voto:</div>
+	 			<form id="modal-form" class="form-container" method="POST" action ="#">
+					<div class="form-entry">
+						<select name="voto" required>
+						  <option value="Assente">Assente</option>
+						  <option value="Rimandato">Rimandato</option>
+						  <option value="Riprovato">Riprovato</option>
+						  <option value="18">18</option>
+						  <option value="19">19</option>
+						  <option value="20">20</option>
+						  <option value="21">21</option>
+						  <option value="22">22</option>
+						  <option value="23">23</option>
+						  <option value="24">24</option>
+						  <option value="25">25</option>
+						  <option value="26">26</option>
+						  <option value="27">27</option>
+						  <option value="28">28</option>
+						  <option value="29">29</option>
+						  <option value="30">30</option>
+						  <option value="30eLode">30eLode</option>
+						</select>
+					</div>
+					<input type="hidden" id="inserimento-multiplo-idCorso" name="idCorso" value="">
+					<input type="hidden" id="inserimento-multiplo-data" name="data" value="">
+					<input id="invia-button" class="btn btn-large btn-colored-solid" type="button" value="Invia"/>	
+					<input id="esci-button" class="btn btn-large btn-colored-solid" type="button" value="Esci"/>
+				</form>     
+	    	</div>
+		</div>
+	<div id="warning_div" class="warning-message"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" type="text/css" media="all" href="../css/global.css" th:href="@{/css/global.css}" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Politecnico di Milano</title>
+</head>
+<body>
+	<div th:replace="/WEB-INF/header :: header"></div>
+	<div class="div-title">
+		<h1>Appelli del corso <i><span th:text="${nomeCorso}">Id_corso</span></i><br></h1>
+	</div>
+	<div class="form-div div-colored">
+		<table>
+		  <tr>
+		    <th>DATA APPELLO</th>
+		  </tr>
+		  <tr th:each="appello : ${appelli}">
+			<td th:text= "${appello.data}">Data</td>
+			<td>
+				<a th:if="${session.user.professore}" class="btn btn-small btn-colored-solid"  th:href="@{/GoToIscritti(idCorso=${appello.idCorso},data=${appello.data})}">Iscritti</a>
+				<a th:if="${session.user.professore==false}" class="btn btn-small btn-colored-solid"  th:href="@{/GoToVoto(idCorso=${appello.idCorso},data=${appello.data},matricola=${session.user.matricola})}">Voto</a>
+			</td>
+		  </tr>
+		</table> 	
+	</div>
+</body>
+</html>

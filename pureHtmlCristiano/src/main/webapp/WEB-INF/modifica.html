@@ -1,0 +1,58 @@
+<!DOCTYPE >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" type="text/css" media="all" href="../css/global.css" th:href="@{/css/global.css}" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Politecnico di Milano</title>
+</head>
+<body>
+	<div th:replace="/WEB-INF/header :: header"></div>
+	<div class="form-div div-colored">
+		<table>
+		  <tr>
+		    <th>MATRICOLA</th>
+		    <th>COGNOME</th>
+		    <th>NOME</th>
+		    <th>EMAIL</th>
+		    <th>CORSO DI LAUREA</th>
+		  </tr>
+		  <tr>
+			<td th:text= "${esito.studente.matricola}">Matricola</td>
+			<td th:text= "${esito.studente.cognome}">Cognome</td>
+			<td th:text= "${esito.studente.nome}">Nome</td>
+			<td th:text= "${esito.studente.email}">Email</td>
+			<td th:text= "${esito.studente.corsoDiLaurea}">Corso di laurea</td>
+		  </tr>		
+		</table> 	
+	</div>
+	
+	<div class="form-div div-colored">
+		<div class="form-title"></div>
+		<form class="form-container" method="POST" th:action="@{/Modifica(idCorso=${idCorso},data=${dataAppello},matricola=${esito.studente.matricola})}">
+			<div class="form-entry">
+				<select name="voto" required>
+				  <option value="Assente">Assente</option>
+				  <option value="Rimandato">Rimandato</option>
+				  <option value="Riprovato">Riprovato</option>
+				  <option value="18">18</option>
+				  <option value="19">19</option>
+				  <option value="20">20</option>
+				  <option value="21">21</option>
+				  <option value="22">22</option>
+				  <option value="23">23</option>
+				  <option value="24">24</option>
+				  <option value="25">25</option>
+				  <option value="26">26</option>
+				  <option value="27">27</option>
+				  <option value="28">28</option>
+				  <option value="29">29</option>
+				  <option value="30">30</option>
+				  <option value="30eLode">30eLode</option>
+				</select>
+			</div>
+			<button class="btn" type="submit">Inserisci</button>
+		</form>
+	 	
+	</div>
+</body>
+</html>

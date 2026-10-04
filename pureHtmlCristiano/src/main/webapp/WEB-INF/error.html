@@ -1,0 +1,14 @@
+<!DOCTYPE >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" media="all" href="../css/global.css" th:href="@{/css/global.css}" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Politecnico di Milano</title>
+</head>
+<body>
+<div th:replace="/WEB-INF/header :: header"></div>
+<div class="form-div div-colored">
+	<b><span th:text="${errorMsg}">Error</span></b>
+</div>
+</body>
+</html>

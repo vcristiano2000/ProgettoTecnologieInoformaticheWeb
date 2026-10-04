@@ -1,0 +1,31 @@
+<!DOCTYPE >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" type="text/css" media="all" href="../css/global.css" th:href="@{/css/global.css}" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Politecnico di Milano</title>
+</head>
+<body>
+	<div th:replace="/WEB-INF/header :: header"></div>
+	<div class="form-div div-colored">
+	<div Class="div-title">
+		<h1>Verbale dell'Appello: <i><span th:text="${nomeCorso}">NomeCorso</span></i> <i><span th:text="${dataAppello}">Data</span></i><br></h1>
+		<h2>Data verbale: <i><span th:text="${verbale.timestamp}">DataVerbale</span></i></h2>
+	</div>
+		<table>
+		  <tr>
+		    <th>MATRICOLA</th>
+		    <th>NOME</th>
+		    <th>COGNOME</th>
+		    <th>VOTO</th>
+		  </tr>
+		  <tr th:each="iscritto : ${verbale.iscritti}">
+			<td th:text= "${iscritto.matricola}">Matricola</td>
+			<td th:text= "${iscritto.nome}">Nome</td>
+			<td th:text= "${iscritto.cognome}">Cognome</td>
+			<td th:text= "${iscritto.voto}">Voto</td>			
+		  </tr>
+		</table>
+	</div>
+</body>
+</html>

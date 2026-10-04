@@ -1,0 +1,33 @@
+<!DOCTYPE >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" type="text/css" media="all" href="../css/global.css" th:href="@{/css/global.css}" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Politecnico di Milano</title>
+</head>
+<body>
+	<div th:replace="/WEB-INF/header :: header"></div>
+	<div class="form-div div-colored">
+	<div Class="div-title">
+		<h1>Esito dell'Appello: <i><span th:text="${nomeCorso}">NomeCorso</span></i> <i><span th:text="${dataAppello}">Data</span></i><br></h1>
+		<h2 th:if="${esito.studente.statoDellaValutazione} != 'pubblicato' AND ${esito.studente.statoDellaValutazione} != 'rifiutato' AND ${esito.studente.statoDellaValutazione} != 'verbalizzato'">Voto non ancora definito</h2>
+	</div>
+		<table th:if="${esito.studente.statoDellaValutazione} == 'pubblicato' OR ${esito.studente.statoDellaValutazione} == 'rifiutato' OR ${esito.studente.statoDellaValutazione} == 'verbalizzato'">
+		  <tr>
+		    <th>Dati Valutazione</th>
+		  </tr>
+			<tr> <td th:text= "'IdCorso: ' + ${esito.studente.idCorso}">IdCorso</td></tr>
+			<tr> <td th:text= "'IdDocente: ' + ${esito.idDocente}">IdDocente</td></tr>
+			<tr> <td th:text= "'Data: ' + ${esito.studente.data}">Data</td></tr>
+			<tr> <td th:text= "'Matricola: ' + ${esito.studente.matricola}">Matricola</td></tr>
+			<tr> <td th:text= "'Cognome: ' + ${esito.studente.cognome}">Cognome</td></tr>
+			<tr> <td th:text= "'Nome: ' + ${esito.studente.nome}">Nome</td></tr>
+			<tr> <td th:text= "'Voto: ' + ${esito.studente.voto}">Voto</td></tr>
+			<tr> <td> <a th:if="${esito.studente.statoDellaValutazione} == 'rifiutato'" th:text= "'il voto e\' stato rifiutato'">Rifiuto</a></td></tr>
+			<tr> <td> <a th:if="${esito.studente.voto} != 'assente' AND ${esito.studente.voto} != 'rimandato' AND ${esito.studente.voto} != 'riprovato' AND ${esito.studente.statoDellaValutazione} != 'rifiutato' AND ${esito.studente.statoDellaValutazione} != 'verbalizzato' " class="btn btn-small btn-colored-solid"  th:href="@{/RifiutaVoto(idCorso=${esito.studente.idCorso},data=${esito.studente.data},matricola=${session.user.matricola})}">Rifiuta voto</a></td></tr>			
+		</table>
+	</div>
+</body>
+</html>
+
+
